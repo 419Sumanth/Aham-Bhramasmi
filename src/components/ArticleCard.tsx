@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { ArticleItem } from '../data/articles';
-import { Bookmark, ExternalLink, BookOpen, Share2 } from 'lucide-react';
+import React, { useState } from "react";
+import { ArticleItem } from "../data/articles";
+import { Bookmark, ExternalLink, BookOpen, Share2 } from "lucide-react";
 
 interface ArticleCardProps {
   article: ArticleItem;
-  viewMode: 'grid' | 'list';
+  viewMode: "grid" | "list";
   isDark: boolean;
   isBookmarked: boolean;
   onToggleBookmark: (id: string) => void;
@@ -23,13 +23,13 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
 }) => {
   const [imgError, setImgError] = useState(false);
 
-  if (viewMode === 'list') {
+  if (viewMode === "list") {
     return (
       <div
         className={`group relative flex flex-col sm:flex-row items-stretch overflow-hidden rounded-xl border transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
           isDark
-            ? 'border-[#85541e]/30 bg-[#221a15] hover:border-[#c6923b]'
-            : 'border-[#c6923b]/25 bg-white hover:border-[#c6923b]'
+            ? "border-[#85541e]/30 bg-[#221a15] hover:border-[#c6923b]"
+            : "border-[#c6923b]/25 bg-white hover:border-[#c6923b]"
         }`}
       >
         {/* Thumbnail Image */}
@@ -68,8 +68,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
               onClick={() => onSelectArticle(article)}
               className={`font-serif text-base sm:text-lg font-semibold leading-snug cursor-pointer transition-colors ${
                 isDark
-                  ? 'text-[#f5ebd7] group-hover:text-[#d8a349]'
-                  : 'text-[#281d16] group-hover:text-[#9a6f23]'
+                  ? "text-[#f5ebd7] group-hover:text-[#d8a349]"
+                  : "text-[#281d16] group-hover:text-[#9a6f23]"
               }`}
             >
               {article.title}
@@ -78,7 +78,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             <p
               onClick={() => onSelectArticle(article)}
               className={`mt-2 text-xs sm:text-sm line-clamp-2 leading-relaxed cursor-pointer ${
-                isDark ? 'text-[#b8a694]' : 'text-[#5d4c3f]'
+                isDark ? "text-[#b8a694]" : "text-[#5d4c3f]"
               }`}
             >
               {article.summary}
@@ -101,7 +101,9 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
                 title="ಹಂಚಿಕೊಳ್ಳಿ"
                 aria-label="ಹಂಚಿಕೊಳ್ಳಿ"
                 className={`p-1.5 rounded-md transition-colors ${
-                  isDark ? 'hover:bg-[#342720] text-[#c7b7a5]' : 'hover:bg-[#f2ece0] text-[#705e4f]'
+                  isDark
+                    ? "hover:bg-[#342720] text-[#c7b7a5]"
+                    : "hover:bg-[#f2ece0] text-[#705e4f]"
                 }`}
               >
                 <Share2 className="w-4 h-4" />
@@ -109,17 +111,19 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
 
               <button
                 onClick={() => onToggleBookmark(article.id)}
-                title={isBookmarked ? 'ಉಳಿಸಲಾಗಿದೆ' : 'ನಂತರ ಓದಲು ಉಳಿಸಿ'}
+                title={isBookmarked ? "ಉಳಿಸಲಾಗಿದೆ" : "ನಂತರ ಓದಲು ಉಳಿಸಿ"}
                 aria-label="ಉಳಿಸಿ"
                 className={`p-1.5 rounded-md transition-colors ${
                   isBookmarked
-                    ? 'text-[#c6923b]'
+                    ? "text-[#c6923b]"
                     : isDark
-                    ? 'hover:bg-[#342720] text-[#c7b7a5]'
-                    : 'hover:bg-[#f2ece0] text-[#705e4f]'
+                      ? "hover:bg-[#342720] text-[#c7b7a5]"
+                      : "hover:bg-[#f2ece0] text-[#705e4f]"
                 }`}
               >
-                <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-current' : ''}`} />
+                <Bookmark
+                  className={`w-4 h-4 ${isBookmarked ? "fill-current" : ""}`}
+                />
               </button>
 
               <a
@@ -144,8 +148,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
     <div
       className={`group flex h-full flex-col overflow-hidden rounded-xl border transition-all duration-200 shadow-sm hover:-translate-y-1 hover:shadow-lg ${
         isDark
-          ? 'border-[#85541e]/30 bg-[#221a15] hover:border-[#c6923b]'
-          : 'border-[#c6923b]/25 bg-white hover:border-[#c6923b]'
+          ? "border-[#85541e]/30 bg-[#221a15] hover:border-[#c6923b]"
+          : "border-[#c6923b]/25 bg-white hover:border-[#c6923b]"
       }`}
     >
       {/* Visual Image container with 1:1 Aspect ratio */}
@@ -195,14 +199,16 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             onToggleBookmark(article.id);
           }}
           aria-label="ಉಳಿಸಿ"
-          title={isBookmarked ? 'ಉಳಿಸಲಾಗಿದೆ' : 'ಉಳಿಸಿ'}
+          title={isBookmarked ? "ಉಳಿಸಲಾಗಿದೆ" : "ಉಳಿಸಿ"}
           className={`absolute top-2 right-2 p-1.5 rounded-full backdrop-blur-md shadow transition-transform active:scale-90 ${
             isBookmarked
-              ? 'bg-[#c6923b] text-white'
-              : 'bg-black/40 text-white/80 hover:text-white hover:bg-black/60'
+              ? "bg-[#c6923b] text-white"
+              : "bg-black/40 text-white/80 hover:text-white hover:bg-black/60"
           }`}
         >
-          <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-current' : ''}`} />
+          <Bookmark
+            className={`w-3.5 h-3.5 ${isBookmarked ? "fill-current" : ""}`}
+          />
         </button>
       </div>
 
@@ -217,8 +223,8 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             onClick={() => onSelectArticle(article)}
             className={`line-clamp-2 text-sm sm:text-base leading-relaxed font-semibold cursor-pointer transition-colors font-serif ${
               isDark
-                ? 'text-[#f5ebd7] group-hover:text-[#d8a349]'
-                : 'text-[#241a14] group-hover:text-[#9a6f23]'
+                ? "text-[#f5ebd7] group-hover:text-[#d8a349]"
+                : "text-[#241a14] group-hover:text-[#9a6f23]"
             }`}
             title={article.title}
           >
@@ -234,7 +240,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
             <span>ಸಾರಾಂಶ</span>
           </button>
 
-          <a
+          {/* <a
             href={article.url}
             target="_blank"
             rel="noopener noreferrer"
@@ -244,7 +250,7 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({
           >
             <span className="hidden xs:inline">ಮೂಲ</span>
             <ExternalLink className="w-3 h-3" />
-          </a>
+          </a> */}
         </div>
       </div>
     </div>
